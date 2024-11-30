@@ -1,6 +1,4 @@
 import type { Config } from "tailwindcss";
-import plugin from "tailwindcss";
-import { PluginAPI } from "tailwindcss/types/config";
 
 export default {
   darkMode: ["class"],
