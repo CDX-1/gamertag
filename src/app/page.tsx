@@ -5,7 +5,7 @@ import { FadeText } from "@/components/ui/fade-text";
 import { RainbowButton } from "@/components/ui/rainbow-button";
 import { getAdjectives, getNouns, getNumbers } from "@/lib/generator";
 import { AvatarFallback } from "@radix-ui/react-avatar";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 const text = {
   adj: getAdjectives(),
@@ -20,7 +20,7 @@ export default function Home() {
   const [nounIndex, setNounIndex] = useState(0);
   const [numIndex, setNumIndex] = useState(0);
 
-  const tada = new Audio("tada.mp3");
+  let tada: HTMLAudioElement;
 
   function roll() {
     if (isRolling) return;
@@ -42,6 +42,10 @@ export default function Home() {
       setIsRolling(false);
     }, rollDuration);
   }
+
+  useEffect(() => {
+    tada = new Audio("tada.mp3");
+  }, []);
 
   return (
     <div className="bg-[#121212] flex items-center justify-center h-screen flex-col space-y-4">
