@@ -83,17 +83,5 @@ export default {
       },
     },
   },
-  plugins: [
-    plugin(function ({ matchUtilities, theme }: PluginAPI) {
-      matchUtilities(
-        {
-          "text-shadow": (value) => ({
-            textShadow: value,
-          }),
-        },
-        { values: theme("textShadow") }
-      );
-    }),
-    require("tailwindcss-animate"),
-  ],
+  plugins: [require("tailwindcss-animate")],
 } satisfies Config;
